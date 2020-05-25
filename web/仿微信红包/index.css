@@ -1,0 +1,234 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+.page {
+  width: 100%;
+  height: 100%;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./image/bg.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.lottery {
+  position: relative;
+  /* width: 400px; */
+  /* height: 600px; */
+  width: 25%;
+  height: 75%;
+  background-color: red;
+  border-radius: 16px;
+  overflow: hidden;
+  /* background-image: url(./image//award_imgs/cover.jpg); */
+  /* background-size: 100%; */
+  /* background-position: center center; */
+}
+.coverImg{
+  width: 100%;
+  height: 100%;
+}
+.lottery.open {
+  overflow: inherit;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  /* position: absolute;
+  left: 50%;
+  top: 50%; */
+  /* animation: move 2s linear 5; */
+  /* animation-iteration-count：5; */
+}
+
+
+.lottery-header {
+  width: 100%;
+  height: 200px;
+  /* width: 25%; */
+  /* height: 75%; */
+  background-color: rgb(255, 72, 0);
+  /* border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%; */
+  overflow: hidden;
+  clip-path: polygon(0 0,
+      100% 0,
+      100% 60%,
+      50% 100%,
+      0 60%,
+      0 0);
+
+}
+
+.lottery-open {
+  position: absolute;
+  left: 37%;
+  /* top: 120px; */
+  top: 71%;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: sandybrown;
+  /* transform: translateX(-50%); */
+  font-size: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all .15s;
+ 
+}
+.whenClick{
+  animation: movePack 0.5s linear 5;
+  transform-origin: 50% 50%;
+}
+.lottery-open:hover,
+.lottery-open.active {
+  /* transform: translateX(-50%) scale(1.1); */
+  transform: scale(1.1);
+}
+
+.lottery-header-open {
+  position: absolute;
+  /* top: -116px; */
+  top: -16%;
+  left: 0;
+  /* width: 400px; */
+  /* height: 240px; */
+  width: 100%;
+  height: 33%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.lottery-header-open .open-top {
+  width: 100%;
+  /* height: 120px; */
+  height: 50%;
+  background-color: #c91a02;
+  border-bottom: 1px solid #e10000;
+}
+
+.lottery-header-open .open-bottom {
+  width: 100%;
+  /* height: 12px; */
+  height: 100%;
+  background-color: #c91a02;
+  overflow: hidden;
+  clip-path: polygon(0 0,
+      400px 0,
+      388px 12px,
+      12px 12px,
+      0 0);
+}
+
+.lottery-content-open {
+  text-align: center;
+  position: absolute;
+  /* top: 60px; */
+  /* left: 20px; */
+  /* width: 360px; */
+  /* height: 500px; */
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 92%;
+  border-radius: 8px;
+  background: #f6f6f6;
+  box-shadow: 0 0 36px 10px #a70404;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.lottery-content-open>h1 {
+  padding: 10px 10px;
+  font-size: 32px;
+  color: #c91a02;
+  border: 4px solid #ce1900;
+  width: 90%;
+}
+
+.lottery-content-open>p {
+  display: block;
+  width: 100%;
+  color: #8f00fa;
+  font-size: 20px;
+  padding: 0 15px;
+}
+
+.lottery-content-open>img {
+  display: block;
+  width: 70%;
+}
+.lottery-content-open>.awardImg{
+  /* display: block; */
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: 100%;
+}
+.awardImg>img{
+  width: 100%;
+  height: 100%;
+}
+
+.lottery-content-open.lose {
+  background-color: #9d9d9d;
+}
+
+.lottery-content-open.lose>img {
+  width: 100%;
+}
+
+.lottery-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  color: #000;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.reset {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  /* height: 42px; */
+  /* width: 10%; */
+  /* height: 8%; */
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(5, 113, 236);
+  text-align: center;
+  font-size: 18px;
+  /* line-height: 2.5; */
+  color: #fff;
+  cursor: pointer;
+}
+@keyframes movePack{
+  from{
+    transform: rotateY(0deg);
+  }
+ to{
+    transform: rotateY(-360deg);
+  }
+}
