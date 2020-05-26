@@ -418,4 +418,20 @@ function getCoordinates() {
     });
   }
 
+  // 计时器函数
+   function calcTimer(){
+   let timerRecord={ hour:'00', min:'00', second:'00' };
+   let totalClock=0;
+    timerRecord.second=showNum(totalClock % 60);
+    timerRecord.min=showNum(parseInt((totalClock/60) % 60));
+    timerRecord.hour=showNum(parseInt(totalClock / 60 / 60));
+     }  
+   //封装一个处理单位数字的函数
+   function showNum(num) {
+      if (num < 10) {
+        return "0" + num;
+      }
+      return num;
+    }
+
 export default codeConetnt
