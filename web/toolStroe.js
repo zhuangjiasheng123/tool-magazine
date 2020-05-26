@@ -402,4 +402,20 @@ function  hexColorToRgba(hexColor, alphaMaxVal = 1) {
     // return rgbaArray255;
     return "rgba(" + rgbaArray255.join(",") + ")";
   }
+
+//   高德地图定位
+function getCoordinates() {
+    let vm = this;
+    AMap.plugin("AMap.Geolocation", function() {
+      let geolocation = new AMap.Geolocation({
+        enableHighAccuracy: true,
+        timeout: 10000
+      });
+      geolocation.getCurrentPosition();
+    //   这里需要调用成功和失败两个回调函数
+      AMap.event.addListener(geolocation, "complete", vm.onComplete);
+      AMap.event.addListener(geolocation, "error", vm.onError);
+    });
+  }
+
 export default codeConetnt
