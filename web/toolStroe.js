@@ -494,17 +494,17 @@ function sortArr(arr) {
   return res;
 }
 // 图片上传之前
- function imgBeforeUpload(file) {
+function imgBeforeUpload(file) {
   let types = ['image/jpeg', 'image/png'];
   const isImage = types.includes(file.type);
   const isLtSize = file.size / 1024 / 1024 < 5;
   if (!isImage) {
-      this.$message.error('上传图片只能是 JPG、PNG 格式!');
-      return false;
+    this.$message.error('上传图片只能是 JPG、PNG 格式!');
+    return false;
   }
   if (!isLtSize) {
-      this.$message.error('上传图片大小不能超过 15MB!');
-      return false;
+    this.$message.error('上传图片大小不能超过 15MB!');
+    return false;
   }
   return true;
 }
@@ -515,12 +515,43 @@ function videoBeforeUpload(file) {
   const isVideo = types.includes(file.type);
   const isLtSize = file.size / 1024 / 1024 < 200;
   if (!isVideo) {
-      this.$message.error('上传视频只能是 mp4 格式!');
-      return false;
+    this.$message.error('上传视频只能是 mp4 格式!');
+    return false;
   }
   if (!isLtSize) {
-      this.$message.error('上传图片大小不能超过 200MB!');
-      return false;
+    this.$message.error('上传图片大小不能超过 200MB!');
+    return false;
   }
   return true;
 }
+
+// 多个判断进行优化
+function verifyIdentity(identityId) {
+  if ([1, 2, 3, 4].includes(identityId)) {
+    return '你的身份合法，请通行！'
+  } else {
+    return '你的身份不合法'
+  }
+}
+
+// for循环优化 var i = 0, i<arr.length;i++
+// 传统循环当数组的长度到达百万级时，arr.length 就要计算一百万次，这是相当耗性能的
+for (var i = 0, length = arr.length; i < length; i++) {
+  console.log(arr[i])
+}
+
+// vue轮播图
+// 1表示container向右移动，-1表示container向左移动；偏移量是600，也就是一张图片的宽度  默认是600
+// 如果移动到7张图片的最后一张，就把container拉到7张图片里的第二张；如果移动到7张图片里第一张，就把container拉到7张图片里的第5张
+function move(offset, direction) {
+  // 切换小圆点
+  direction === -1 ? this.currentIndex++ : this.currentIndex--
+  if (this.currentIndex > 5) this.currentIndex = 1
+  if (this.currentIndex < 1) this.currentIndex = 5
+  // 切换图片偏移量
+  this.distance += this.distance * direction
+  if (this.distance < -3000) this.distance = -600
+  if (this.distance > -600) this.distance = -3000
+}
+
+
