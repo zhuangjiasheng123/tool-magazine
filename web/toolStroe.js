@@ -207,18 +207,6 @@ cookie = () => {
   });
 }
 
-/** 
- * 路由改变但是页面内容没有改变
- * 组件还是那个组件，没有销毁重建，没有走生命周期，所以需要手动获取数据
-*/
-getNewDataByRouter = () => {
-  // watch:{
-  //     $route(to,from){ console.log(to.path);}
-  //   },
-  //   $route(){
-  //       this.userId= this.$route.query.id
-  //     },
-}
 
 兄弟选择器和子元素选择器
 // 兄弟选择器加号“+”，可以选择指定元素相邻的下一个元素
@@ -554,4 +542,5 @@ function move(offset, direction) {
   if (this.distance > -600) this.distance = -3000
 }
 
-
+// 点击跳到对应的锚点 Vue 
+  this.$refs.opt[index].scrollIntoView(true);
