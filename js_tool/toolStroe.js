@@ -544,3 +544,22 @@ function move(offset, direction) {
 
 // 点击跳到对应的锚点 Vue 
   this.$refs.opt[index].scrollIntoView(true);
+
+// 递归函数 判断children添加
+function recursionFun(tempArr) {
+  let newTempArr = JSON.parse(JSON.stringify(tempArr));
+  let arr = [];
+  newTempArr.map(item => {
+    let obj= {
+      id: item.id,
+      value: item.id,
+      label: item.label,
+    };
+     if (item.children.length > 0) {
+      obj.children = this.recursionFun(item.children);
+    }
+    arr.push(obj)
+  });
+  return arr
+}
+
