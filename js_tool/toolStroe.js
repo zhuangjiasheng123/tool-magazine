@@ -217,34 +217,24 @@ cookie = () => {
  * 在vue中嵌套iframe页面的一些问题
  * 
 */
-aboutIframe = () => {
+
   //调用iframe页面中的方法
   this.$refs.video.contentWindow.方法名()
   //vue页面引用iframe的地方设置一个id并且设置一个data-属性
   parent.document.getElementById("task").dataset.sessionid
+
   //子页面调用父页面的方法 父页面挂载一个方法在window上
-  //  transFer() {
-  //       let that=this;
-  //       window.addTab = function(obj) {
-  //         that.flag=obj;
-  //       };
-  //     }
-  //  window.parent.addTab(true)
-}
+  function transFer() {
+        let that=this;
+        window.addTab = function(obj) {
+          that.flag=obj;
+        };
+      }
+   window.parent.addTab(true)
 
 
-// vue本地代理跨域
-loaclAgency = () => {
-  // devServer: {
-  //     proxy: {
-  //       '/video': {
-  //         target: 'http://113.98.62.19:8088/',
-  //         ws: false,
-  //         changeOrigin: true
-  //       }
-  //     }
-  //   },
-}
+
+
 
 // js获取宽高和偏移值
 /** 
