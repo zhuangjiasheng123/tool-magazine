@@ -293,6 +293,75 @@ document.getElementById(‘app‘).appendChild(component.$el)
      },
 ```
 
+##### vuex
+
+index.js
+
+```js
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+export default new Vuex.Store({
+  modules: {
+    app,
+    transferData,
+    dataRecord
+  }
+})
+```
+
+子文件
+
+```js
+export default {
+    state: {
+        disCreenImg:{},
+    },
+    mutations: {
+      setDisCreenImg(state,imgObj){
+        state.disCreenImg=imgObj;
+      },
+    },
+    getters: {
+     // 单个参数
+        countDouble: function(state){
+          return state.count 
+        },
+        // 两个参数
+        CountDoubleAndDouble: function(state, getters) {
+          return getters.countDouble 
+        }
+    },
+    actions: {
+      //
+    }
+  };
+```
+
+基本使用
+
+```js
+this.$store.state.animalChange
+this.$store.commit('setAnimalChange',{});
+this.$store.dispatch('onLogin')
+```
+
+getter相当于vuex的计算属性，getter的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。
+
+```js
+computed(){   
+countDouble: function(){
+   return this.$store.getters.countDouble
+ }
+}
+
+  import { mapGetters } from 'vuex'
+ ...mapGetters([
+      'countDouble',
+      'CountDoubleAndDouble',
+    ]),
+```
+
 
 
 ##### vue引入百度地图
