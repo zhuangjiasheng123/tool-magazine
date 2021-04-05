@@ -28,6 +28,14 @@ vscode鼠标右键打开在server上
 react---> ES7 React/Redux/React-Native/JS snippets
 ```
 
+##### 设置缩进空格数
+
+```
+tab size
+```
+
+
+
 ##### 插件列表
 
 ```

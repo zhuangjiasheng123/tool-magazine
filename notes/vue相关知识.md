@@ -94,7 +94,15 @@ export default debounce
 
 ```
 
+##### this.$set的几种用法
 
+```js
+//对象 this.$set(object, 'key', value)
+this.$set(this.ctrPointMadeUp, 'point', res.data.data.focusProportion)
+//数组  this.$set(array, index, item)  this.$set(array[index],"key", value)
+this.$set(this.items, index, item)
+this.$set(this.items[index],"flag", !item.flag)
+```
 
 ##### vue生命周期
 
@@ -213,13 +221,13 @@ router.beforeEach 是页面加载之前，相反router.afterEach是页面加载�
 
 父组件
 
-```
+```js
 <BoxTabs v-model="currentTabs" :headerList="headerList"></BoxTabs>  
 ```
 
 子组件
 
-```
+```js
 <div :class="{'active':index == currentTab}" >{{ item }}</div>
  
  props: {
